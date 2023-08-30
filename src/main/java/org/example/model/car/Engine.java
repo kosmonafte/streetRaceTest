@@ -46,7 +46,7 @@ public class Engine {
         double tmp = 0;
         if (this.wear < 0.01) {
             tmp = this.power;
-        } else if (this.wear > 0.01 && this.wear < this.power) {
+        } else if (this.wear > 0.01 && this.wear < this.power - 1) {
             tmp = this.power - this.wear;
         } else {
             tmp = 1;
