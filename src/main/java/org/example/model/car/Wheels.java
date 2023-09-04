@@ -1,30 +1,17 @@
 package org.example.model.car;
 
-public class Wheels {
+public class Wheels extends Part{
 
-    private String name;
     private int power;
-    private int wear;
 
     public Wheels() {
-        this.name = "Таганка";
-        this.power = 1;
-        this.wear = 0;
+        super("Таганка", 10, 0);
+        this.power = 30;
     }
 
-    public Wheels(String name, int clutch, int wear) {
-        this.name = name;
-        this.power = clutch;
-        this.wear = wear;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public Wheels(String name, int price, int wear, int power) {
+        super(name, price, wear);
+        this.power = power;
     }
 
     public int getPower() {
@@ -35,12 +22,17 @@ public class Wheels {
         this.power = power;
     }
 
-    public int racePower() {
-        if (wear < 1) {
-            return this.power;
+    @Override
+    public double getPowerRace() {
+        double tmp = 0;
+        if (this.wear < 0.01) {
+            tmp = this.power;
+        } else if (this.wear > 0.01 && this.wear < this.power - 1) {
+            tmp = this.power - this.wear;
         } else {
-            return this.power / this.wear;
+            tmp = 1;
         }
+        this.changeWear();
+        return tmp;
     }
-
 }

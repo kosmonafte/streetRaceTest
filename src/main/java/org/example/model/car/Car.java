@@ -1,73 +1,60 @@
 package org.example.model.car;
 
-public class Car {
+import java.util.Arrays;
 
-    private Engine engine;
-    private Transmission transmission;
-    private Suspension suspension;
-    private Wheels wheel;
-    private Body body;
+public class Car {
+    private String name;
+    Part[] parts;
 
     public Car() {
-        this.engine = new Engine();
-        this.transmission = new Transmission();
-        this.suspension = new Suspension();
-        this.wheel = new Wheels();
-        this.body = new Body();
+        this.name = "Жигули";
+        parts = new Part[3];
+        this.parts[0] = new Engine();
+        this.parts[1] = new Transmission();
+        this.parts[2] = new Wheels();
     }
 
-    public Car(Engine engine, Transmission transmission, Suspension suspension, Wheels wheel, Body body) {
-        this.engine = engine;
-        this.transmission = transmission;
-        this.suspension = suspension;
-        this.wheel = wheel;
-        this.body = body;
+    public Car(String name, Engine engine, Transmission transmission, Wheels wheel) {
+        this.name = name;
+        parts = new Part[3];
+        this.parts[0] = engine;
+        this.parts[1] = transmission;
+        this.parts[2] = wheel;
     }
 
-    public Engine getEngine() {
-        return engine;
+    public Part getEngine() {
+        return this.parts[0];
     }
 
     public void setEngine(Engine engine) {
-        this.engine = engine;
+        this.parts[0] = engine;
     }
 
-    public Transmission getTransmission() {
-        return transmission;
+    public Part getTransmission() {
+        return this.parts[1];
     }
 
     public void setTransmission(Transmission transmission) {
-        this.transmission = transmission;
+        this.parts[1] = transmission;
     }
 
-    public Suspension getSuspension() {
-        return suspension;
-    }
-
-    public void setSuspension(Suspension suspension) {
-        this.suspension = suspension;
-    }
-
-    public Wheels getWheel() {
-        return wheel;
+    public Part getWheel() {
+        return this.parts[2];
     }
 
     public void setWheel(Wheels wheel) {
-        this.wheel = wheel;
+        this.parts[2] = wheel;
     }
 
-    public Body getBody() {
-        return body;
+    public double getPowerRace() {
+        return this.parts[0].getPowerRace() + this.parts[1].getPowerRace() + this.parts[2].getPowerRace();
     }
 
-    public void setBody(Body body) {
-        this.body = body;
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", parts=" + Arrays.toString(parts) +
+                '}';
     }
-
-//    public int getPower(){
-//        int pow;
-//
-//        return pow;
-//    }
-
 }
