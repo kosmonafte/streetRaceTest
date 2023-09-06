@@ -1,23 +1,16 @@
 package org.example.model.car;
 
 public class Engine extends Part {
-    private int power;
 
     public Engine() {
-        super("21114", 20, 0);
-        this.power = 90;
+        super("21114", 20, 0, 90);
     }
 
-    public Engine(String name, int price, double wear, int power) {
-        super(name, price, wear);
-        this.power = power;
+    public Engine(String name, double price, double wear, double power) {
+        super(name, price, wear, power);
     }
 
-    public int getPower() {
-        return power;
-    }
-
-    public void setPower(int power) {
+    public void setPower(double power) {
         this.power = power;
     }
 

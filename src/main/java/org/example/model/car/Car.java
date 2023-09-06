@@ -3,6 +3,7 @@ package org.example.model.car;
 import java.util.Arrays;
 
 public class Car {
+
     private String name;
     Part[] parts;
 
@@ -20,6 +21,18 @@ public class Car {
         this.parts[0] = engine;
         this.parts[1] = transmission;
         this.parts[2] = wheel;
+    }
+
+    public double getPower() {
+        return this.parts[0].getPower() + this.parts[1].getPower() + this.parts[2].getPower();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Part getEngine() {

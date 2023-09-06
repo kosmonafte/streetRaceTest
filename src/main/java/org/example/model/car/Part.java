@@ -3,19 +3,35 @@ package org.example.model.car;
 abstract public class Part {
 
     protected String name;
-    protected int price;
+    protected double price;
     protected double wear;
 
+    protected double power;
+
     public Part() {
-        this.name = "Lada";
-        this.price = 1500000;
+        this.name = "_";
+        this.price = 0;
         this.wear = 0;
+        this.power = 0;
     }
 
-    public Part(String name, int price, double wear) {
+    public Part(String name, double price, double wear, double power) {
         this.name = name;
         this.price = price;
         this.wear = wear;
+        this.power = power;
+    }
+
+    public double getPower() {
+        return this.power;
+    }
+
+    public void setPower(double power) {
+        this.power = power;
+    }
+
+    public double showPower() {
+        return this.power;
     }
 
     public String getName() {
@@ -26,11 +42,11 @@ abstract public class Part {
         this.name = name;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -38,7 +54,7 @@ abstract public class Part {
         return wear;
     }
 
-    public void setWear(int wear) {
+    public void setWear(double wear) {
         this.wear = wear;
     }
 
@@ -47,7 +63,7 @@ abstract public class Part {
     }
 
     public double getPowerRace() {
-        return this.wear;
+        return this.power;
     }
 
     @Override
